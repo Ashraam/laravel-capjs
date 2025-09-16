@@ -2,7 +2,6 @@
 
 namespace Ashraam\Capjs;
 
-use Ashraam\Capjs\Rules\Capjs;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
@@ -32,15 +31,13 @@ class CapjsServiceProvider extends ServiceProvider
         }
 
         Blade::directive('capjsScript', function () {
-            return <<<HTML
-<script src="https://cdn.jsdelivr.net/npm/@cap.js/widget"></script>
-HTML;
+            return app('capjs')->script();
         });
 
         Blade::component('capjs::components.capjs-widget', 'capjs-widget');
 
         Validator::extend('capjs', function ($attribute, $value, $parameters, $validator) {
-            $rule = new Capjs();
+            $rule = new \Ashraam\Capjs\Rules\Capjs();
 
             if ($rule->passes($attribute, $value)) {
                 return true;

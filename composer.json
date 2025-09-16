@@ -1,9 +1,13 @@
 {
   "name": "ashraam/laravel-capjs",
-  "description": "",
+  "description": "A simple package to integrate Cap.js, an hCaptcha-like open source challenge, into your Laravel application.",
   "keywords": [
     "ashraam",
-    "capjs"
+    "capjs",
+    "laravel",
+    "captcha",
+    "hcaptcha",
+    "cap.js"
   ],
   "homepage": "https://github.com/ashraam/laravel-capjs",
   "license": "MIT",

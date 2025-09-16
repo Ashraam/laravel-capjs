@@ -5,7 +5,8 @@ namespace Ashraam\Capjs;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \Ashraam\Capjs\Skeleton\SkeletonClass
+ * @method static string script()
+ * @see \Ashraam\Capjs\Capjs
  */
 class CapjsFacade extends Facade
 {
