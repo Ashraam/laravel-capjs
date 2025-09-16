@@ -2,6 +2,7 @@
 
 namespace Ashraam\Capjs;
 
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
 class CapjsServiceProvider extends ServiceProvider
@@ -34,14 +35,19 @@ class CapjsServiceProvider extends ServiceProvider
                 __DIR__.'/../resources/assets' => public_path('vendor/capjs'),
             ], 'assets');*/
 
-            // Publishing the translation files.
-            /*$this->publishes([
-                __DIR__.'/../resources/lang' => resource_path('lang/vendor/capjs'),
-            ], 'lang');*/
+            // $this->publishes([
+            //     __DIR__.'/../lang' => resource_path('lang/vendor/capjs'),
+            // ], 'lang');
 
             // Registering package commands.
             // $this->commands([]);
         }
+
+        Blade::directive('capjsScript', function () {
+            return <<<HTML
+<script src="https://cdn.jsdelivr.net/npm/@cap.js/widget"></script>
+HTML;
+        });
     }
 
     /**
