@@ -6,6 +6,6 @@ class Capjs
 {
     public function script(): string
     {
-        return '<script src="https://cdn.jsdelivr.net/npm/@cap.js/widget"></script>';
+        return '<script src="'.config('capjs.host').'/assets/widget.js"></script>';
     }
 }
