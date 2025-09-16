@@ -6,6 +6,7 @@ return [
     'solved' => 'I am human',
     'error' => 'Error',
     'wasm_disabled' => 'Enable WASM for significantly faster solving',
+    'validation_failed' => 'Captcha verification failed',
 
     'aria' => [
         'verify' => "Click to verify you're a human",

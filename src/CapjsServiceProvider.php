@@ -2,7 +2,9 @@
 
 namespace Ashraam\Capjs;
 
+use Ashraam\Capjs\Rules\Capjs;
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
 
 class CapjsServiceProvider extends ServiceProvider
@@ -24,11 +26,6 @@ class CapjsServiceProvider extends ServiceProvider
                 __DIR__.'/../resources/views' => resource_path('views/vendor/capjs'),
             ], 'views');
 
-            // Publishing assets.
-            /*$this->publishes([
-                __DIR__.'/../resources/assets' => public_path('vendor/capjs'),
-            ], 'assets');*/
-
             $this->publishes([
                 __DIR__.'/../resources/lang' => resource_path('lang/vendor/capjs'),
             ], 'lang');
@@ -41,6 +38,20 @@ HTML;
         });
 
         Blade::component('capjs::components.capjs-widget', 'capjs-widget');
+
+        Validator::extend('capjs', function ($attribute, $value, $parameters, $validator) {
+            $rule = new Capjs();
+
+            if ($rule->passes($attribute, $value)) {
+                return true;
+            }
+
+            $validator->addReplacer('capjs', function ($message, $attribute, $ruleName, $parameters) use ($rule) {
+                return $rule->message();
+            });
+
+            return false;
+        });
     }
 
     /**
