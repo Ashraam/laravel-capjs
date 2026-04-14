@@ -5,7 +5,7 @@ A simple package to integrate Cap.js, an hCaptcha-like open source challenge, in
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/ashraam/capjs.svg?style=flat-square)](https://packagist.org/packages/ashraam/laravel-capjs)
 [![Total Downloads](https://img.shields.io/packagist/dt/ashraam/capjs.svg?style=flat-square)](https://packagist.org/packages/ashraam/laravel-capjs)
 
-This package provides a simple way to integrate [Cap.js](https://cap.js.org/) into your Laravel application.
+This package provides a simple way to integrate [Cap.js](https://capjs.js.org/) into your Laravel application.
 
 ## Installation
 
